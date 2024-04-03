@@ -8,3 +8,7 @@
   margin: 0;
   height: 100%;
 }
+
+.cl-userButtonPopoverFooter, .cl-internal-vwxx4q  {
+  display: none;
+}

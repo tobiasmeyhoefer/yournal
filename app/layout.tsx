@@ -2,6 +2,18 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ClerkProvider } from "@clerk/nextjs"
+import { neobrutalism } from "@clerk/themes"
+import { deDE } from "@clerk/localizations"
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  SignUpButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs"
+import Link from "next/link"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,9 +28,33 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{ baseTheme: neobrutalism }} localization={deDE}>
       <html lang="de">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <header className="absolute p-10 flex justify-between w-full items-center h-20">
+            <div className="flex gap-6 items-center">
+              <Link href={"/"} className="font-bold text-3xl mr-16 h-full">YOURNAL</Link>
+              <SignedIn>
+                <Link href={"/neuerEintrag"} className="h-full">Neuer Eintrag</Link>
+                <Link href={"/gedanken"} className="h-full">Meine Gedanken</Link>
+              </SignedIn>
+            </div>
+            <div className="flex gap-6">
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                <SignInButton>
+                  <button>Anmelden</button>
+                </SignInButton>
+                <SignUpButton>
+                  <button>Registrieren</button>
+                </SignUpButton>
+              </SignedOut>
+            </div>
+          </header>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   )
