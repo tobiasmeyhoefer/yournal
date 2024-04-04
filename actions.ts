@@ -14,6 +14,8 @@ export async function createThought(prevState: any, formData: FormData) {
   const data = schema.parse({
     thought: formData.get("thought"),
   })
+
+  formData.set("thought", "")
   try {
     await db.insert(gedanke).values([
       {

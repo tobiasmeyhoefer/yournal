@@ -1,6 +1,7 @@
 "use client"
 
 import { createThought } from "@/actions"
+import { useRef } from "react"
 import { useFormState, useFormStatus } from "react-dom"
 
 const initialState = {
@@ -18,10 +19,15 @@ function SubmitButton() {
 
 const NeuerEintrag = () => {
   const [state, formAction] = useFormState(createThought, initialState)
-
+  const ref = useRef<HTMLFormElement>(null);
+  
   return (
     <div className="flex w-full h-full justify-center items-center">
-      <form className="flex flex-col gap-12 w-1/3" action={formAction}>
+      <form ref={ref} className="flex flex-col gap-12 w-1/3" action={(formData) => {
+        formAction(formData)
+        ref.current?.reset()
+
+      }}>
         <textarea
           name="thought"
           required
