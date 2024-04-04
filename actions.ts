@@ -25,7 +25,7 @@ export async function createThought(prevState: any, formData: FormData) {
         thought: data.thought,
       },
     ])
-    // revalidatePath("/gedanken")
+    revalidatePath("/gedanken")
     formData.delete("thought")
     return {message: "gespeichert"}
   } catch(e) {
