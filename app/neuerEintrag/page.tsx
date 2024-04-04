@@ -1,7 +1,6 @@
 "use client"
 
 import { createThought } from "@/actions"
-import { auth } from "@clerk/nextjs"
 import { useRef } from "react"
 import { useFormState, useFormStatus } from "react-dom"
 
@@ -33,7 +32,7 @@ const NeuerEintrag = () => {
           name="thought"
           required
           className="h-60 p-5 border border-gray-400 rounded-lg outline-none"
-          placeholder="schreibe hier deine gedanken auf"
+          placeholder="schreibe hier deine Gedanken auf"
         />
         <SubmitButton/>
         <p role="status">{state.message}</p>

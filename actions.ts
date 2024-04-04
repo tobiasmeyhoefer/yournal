@@ -1,4 +1,5 @@
-// "use server"
+"use server"
+
 import { db } from "@/db"
 import { gedanken } from "@/schemas/schema"
 import { auth } from "@clerk/nextjs"
@@ -6,8 +7,8 @@ import { eq } from "drizzle-orm"
 import { z } from "zod"
 
 export async function createThought(prevState: any, formData: FormData) {
+
   const {userId} = auth()
-  // "use server"
   const schema = z.object({
     thought: z.string(),
   })
@@ -33,7 +34,6 @@ export async function createThought(prevState: any, formData: FormData) {
 
 export async function getThoughts() {
   const {userId} = auth()
-
   try {
     const thougths = await db.select().from(gedanken).where(eq(gedanken.user, userId!))
     return thougths
