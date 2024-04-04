@@ -1,9 +1,12 @@
 "use server"
 
 import { db } from "@/db"
-import { gedanke } from "@/schemas/schema"
-import { revalidatePath } from "next/cache"
+import { gedanken } from "@/schemas/schema"
+import { auth } from "@clerk/nextjs"
+import { eq } from "drizzle-orm"
 import { z } from "zod"
+
+const {userId} = auth()
 
 export async function createThought(prevState: any, formData: FormData) {
   // "use server"
@@ -15,17 +18,27 @@ export async function createThought(prevState: any, formData: FormData) {
     thought: formData.get("thought"),
   })
 
-  formData.set("thought", "")
   try {
-    await db.insert(gedanke).values([
+    await db.insert(gedanken).values([
       {
+        user: userId!,
         thought: data.thought,
       },
     ])
-    // revalidatePath("/gedanke")
+    // revalidatePath("/gedanken")
     formData.delete("thought")
-    return {message: "Gedanke gespeichert"}
+    return {message: "gedanken gespeichert"}
   } catch(e) {
-    return {message: "irgendwas ist schiefgelaufen"}
+    return {message: "irgendwas ist schiefgelaufen: " + e}
+  }
+}
+
+export async function getThoughts() {
+
+  try {
+    const thougths = await db.select().from(gedanken).where(eq(gedanken.user, userId!))
+    return thougths
+  } catch(e) {
+    throw new Error("Something went wrong heroooo")
   }
 }

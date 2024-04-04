@@ -32,7 +32,7 @@ const NeuerEintrag = () => {
           name="thought"
           required
           className="h-60 p-5 border border-gray-400 rounded-lg outline-none"
-          placeholder="schreibe hier deine Gedanken auf"
+          placeholder="schreibe hier deine gedanken auf"
         />
         <SubmitButton/>
         <p role="status">{state.message}</p>

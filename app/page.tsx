@@ -30,7 +30,7 @@ export default function Home() {
 //         <div className="flex gap-6">
 //           <SignedIn>
 //             <Link href={"/neuerEintrag"}>Neuer Eintrag</Link>
-//             <Link href={"/gedanken"}>Meine Gedanken</Link>
+//             <Link href={"/gedanken"}>Meine gedanken</Link>
 //           </SignedIn>
 //         </div>
 //         <div className="flex gap-6">

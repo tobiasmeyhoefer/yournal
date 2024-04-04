@@ -36,7 +36,7 @@ export default function RootLayout({
               <Link href={"/"} className="font-bold text-3xl mr-16 h-full">YOURNAL</Link>
               <SignedIn>
                 <Link href={"/neuerEintrag"} className="h-full">Neuer Eintrag</Link>
-                <Link href={"/gedanken"} className="h-full">Meine Gedanken</Link>
+                <Link href={"/gedanken"} className="h-full">Meine gedanken</Link>
               </SignedIn>
             </div>
             <div className="flex gap-6">
