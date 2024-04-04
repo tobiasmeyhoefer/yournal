@@ -1,6 +1,7 @@
 "use client"
 
 import { createThought } from "@/actions"
+import { auth } from "@clerk/nextjs"
 import { useRef } from "react"
 import { useFormState, useFormStatus } from "react-dom"
 
