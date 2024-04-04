@@ -32,11 +32,11 @@ export default function RootLayout({
       <html lang="de">
         <body className={inter.className}>
           <header className="absolute p-10 flex justify-between w-full items-center h-20">
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-10 items-center">
               <Link href={"/"} className="font-bold text-3xl mr-16 h-full">YOURNAL</Link>
               <SignedIn>
-                <Link href={"/neuerEintrag"} className="h-full">Neuer Eintrag</Link>
-                <Link href={"/gedanken"} className="h-full">Meine gedanken</Link>
+                <Link href={"/neuerEintrag"} className="h-full hover:font-bold transition-all">neuer Gedanke</Link>
+                <Link href={"/gedanken"} className="h-full hover:font-bold transition-all">meine Gedanken</Link>
               </SignedIn>
             </div>
             <div className="flex gap-6">

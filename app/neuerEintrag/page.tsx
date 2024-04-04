@@ -23,7 +23,7 @@ const NeuerEintrag = () => {
   
   return (
     <div className="flex w-full h-full justify-center items-center">
-      <form ref={ref} className="flex flex-col gap-12 w-1/3" action={(formData) => {
+      <form ref={ref} className="flex flex-col gap-12 w-2/3 xl:w-1/3" action={(formData) => {
         formAction(formData)
         ref.current?.reset()
 

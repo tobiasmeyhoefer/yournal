@@ -4,6 +4,7 @@ import { db } from "@/db"
 import { gedanken } from "@/schemas/schema"
 import { auth } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
+import { revalidatePath } from "next/cache"
 import { z } from "zod"
 
 export async function createThought(prevState: any, formData: FormData) {
@@ -26,7 +27,7 @@ export async function createThought(prevState: any, formData: FormData) {
     ])
     // revalidatePath("/gedanken")
     formData.delete("thought")
-    return {message: "gedanken gespeichert"}
+    return {message: "gespeichert"}
   } catch(e) {
     return {message: "irgendwas ist schiefgelaufen: " + e}
   }
@@ -41,3 +42,14 @@ export async function getThoughts() {
     throw new Error("Something went wrong heroooo")
   }
 }
+
+export async function deleteThought(id: number) {
+  try {
+    await db.delete(gedanken).where(eq(gedanken.id, id))
+    revalidatePath("/gedanken")
+  } catch(e) {
+    throw new Error("Something went wrong heroooo")
+  }
+}
+
+
