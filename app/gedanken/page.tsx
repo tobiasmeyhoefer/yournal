@@ -1,6 +1,6 @@
 const Gedanken = () => {
   return ( 
-    <div className="flex justify-center items-center h-full">Gedanken</div>
+    <div className="flex justify-center items-center h-full">Gedankeno</div>
   );
 }
  
