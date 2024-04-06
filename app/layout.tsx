@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { ClerkProvider } from "@clerk/nextjs"
 import { neobrutalism } from "@clerk/themes"
@@ -14,8 +14,13 @@ import {
   useUser,
 } from "@clerk/nextjs"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
+import Navigation from "@/components/Navigation/Navigation"
 
-const space_grotesk = Space_Grotesk({ subsets: ["latin"] })
+const space_grotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--space-grotesk",
+})
 
 export const metadata: Metadata = {
   title: "Yournal",
@@ -29,9 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{ baseTheme: neobrutalism }} localization={deDE}>
-      <html lang="de">
-        <body className={space_grotesk.className}>
-          <header className="absolute p-10 flex justify-between w-full items-center h-20">
+      <html lang="de" className="h-full">
+        <body className={cn(
+          "bg-background font-space antialiased h-full",
+          space_grotesk.variable
+        )}>
+          {/* <header className="absolute p-10 flex justify-between w-full items-center h-20">
             <div className="flex gap-10 items-center">
               <Link href={"/"} className="font-bold text-3xl mr-16 h-full">YOURNAL</Link>
               <SignedIn>
@@ -52,6 +60,9 @@ export default function RootLayout({
                 </SignUpButton>
               </SignedOut>
             </div>
+          </header> */}
+          <header className='absolute top-0 left-0 right-0'>
+            <Navigation></Navigation>
           </header>
           {children}
         </body>

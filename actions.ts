@@ -5,10 +5,11 @@ import { gedanken } from "@/schemas/schema"
 import { auth } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
+import { setTimeout } from "timers/promises"
 import { z } from "zod"
 
 export async function createThought(prevState: any, formData: FormData) {
-
+  await setTimeout(5000)
   const {userId} = auth()
   const schema = z.object({
     thought: z.string(),
@@ -27,7 +28,7 @@ export async function createThought(prevState: any, formData: FormData) {
     ])
     revalidatePath("/gedanken")
     formData.delete("thought")
-    return {message: "gespeichert"}
+    return {message: "gespeichert ✅"}
   } catch(e) {
     return {message: "irgendwas ist schiefgelaufen: " + e}
   }
