@@ -47,9 +47,6 @@ export default function NavBar({
           </SignedIn>
         </ul>
         <div className="gap-6 flex">
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
           <div className="hidden md:flex">
             <SignedOut>
               <SignInButton>
@@ -61,13 +58,18 @@ export default function NavBar({
             </SignedOut>
           </div>
         </div>
-        <Link
-          href={"/"}
-          onClick={deactivate}
-          className="font-bold text-xl h-full w-60 flex justify-center items-center"
-        >
-          YOURNAL
-        </Link>
+        <div className="flex items-center h-full mr-8 gap-8">
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          <Link
+            href={"/"}
+            onClick={deactivate}
+            className="font-bold text-xl h-full w-32 flex justify-center items-center"
+          >
+            YOURNAL
+          </Link>
+        </div>
       </div>
     </nav>
   )

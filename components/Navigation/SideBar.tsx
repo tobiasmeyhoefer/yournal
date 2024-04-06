@@ -10,10 +10,10 @@ export default function SideBar({
 }): JSX.Element {
   return (
     <div
-      className="fixed md:hidden w-full bg-white z-2 bottom-0 top-0 flex justify-center z-10"
+      className="fixed md:hidden w-full bg-white bottom-0 top-0 flex justify-center"
       style={{
         opacity: `${isOpen ? "1" : "0"}`,
-        top: ` ${isOpen ? "0" : "-100%"}`,
+        top: ` ${isOpen ? "0" : "100%"}`,
       }}
     >
       <ul className="text-center text-xl w-full flex flex-col justify-center">
@@ -51,29 +51,11 @@ export default function SideBar({
             </SignInButton>
           </li>
           <li>
-            {/* <Link
-              onClick={toggle}
-              href="/gedanken"
-              className="h-full flex justify-center items-center hover:bg-lightGray py-8 hover:font-bold transition-all"
-            >
-              Registrieren
-            </Link> */}
             <SignUpButton>
               <button onClick={toggle} className="hover:font-bold transition-all py-8">Registrieren</button>
             </SignUpButton>
           </li>
         </SignedOut>
-        {/* <SignedIn>
-                <UserButton />
-              </SignedIn>
-              <SignedOut>
-                <SignInButton>
-                  <button>Anmelden</button>
-                </SignInButton>
-                <SignUpButton>
-                  <button>Registrieren</button>
-                </SignUpButton>
-              </SignedOut> */}
       </ul>
     </div>
   )
