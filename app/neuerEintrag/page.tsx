@@ -27,7 +27,7 @@ const NeuerEintrag = () => {
         <textarea
           name="thought"
           required
-          className="h-60 p-5 border border-gray-300 rounded-lg outline-none"
+          className="h-60 p-5 border border-black border-b-4 border-r-4 rounded-lg outline-none"
           placeholder="schreibe hier deine Gedanken auf"
         />
         <SubmitButton  text="Speichern"/>
