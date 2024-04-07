@@ -9,7 +9,6 @@ import { setTimeout } from "timers/promises"
 import { z } from "zod"
 
 export async function createThought(prevState: any, formData: FormData) {
-  await setTimeout(5000)
   const {userId} = auth()
   const schema = z.object({
     thought: z.string(),
