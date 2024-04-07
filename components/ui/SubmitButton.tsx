@@ -8,7 +8,7 @@ export function SubmitButton({ text }: { text: string }) {
 
   if (pending) {
     return (
-      <Button disabled>
+      <Button className="bg-red-200 text-black border rounded-lg border-b-4 border-r-4 border-black" disabled>
         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
         {text}
       </Button>
