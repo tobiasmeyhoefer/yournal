@@ -30,7 +30,7 @@ const NeuerEintrag = () => {
           className="h-60 p-5 border border-gray-300 rounded-lg outline-none"
           placeholder="schreibe hier deine Gedanken auf"
         />
-        <SubmitButton />
+        <SubmitButton  text="Speichern"/>
         <p role="status">{state.message}</p>
       </form>
     </div>

@@ -19,22 +19,22 @@ export default function SideBar({
       <ul className="text-center text-xl w-full flex flex-col justify-center">
         <SignedIn>
           <li className="w-full">
-            <Link
+            <a
               onClick={toggle}
               href="/neuerEintrag"
               className="h-full flex justify-center items-center hover:font-bold hover:bg-lightGray py-8 transition-all"
             >
               neuer Gedanke
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               onClick={toggle}
               href="/gedanken"
               className="h-full flex justify-center items-center hover:bg-lightGray py-8 hover:font-bold transition-all"
             >
               meine Gedanken
-            </Link>
+            </a>
           </li>
         </SignedIn>
         <SignedOut>

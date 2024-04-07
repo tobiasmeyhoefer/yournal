@@ -60,7 +60,7 @@ export default function NavBar({
         </div>
         <div className="flex items-center h-full mr-8 gap-8">
           <SignedIn>
-            <UserButton />
+            <UserButton/>
           </SignedIn>
           <Link
             href={"/"}
