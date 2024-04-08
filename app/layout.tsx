@@ -68,13 +68,16 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: neobrutalism }} localization={deDE}>
       <Head>
-        <meta name="theme-color" content='#000000'></meta>
+        {/* <meta name="theme-color" content='#000000'></meta> */}
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAFA"></meta>
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="default"></meta>
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+        <meta name="color-scheme" content="dark light"></meta>
       </Head>
-      <html lang="de" className="h-full bg-neutral-50" suppressHydrationWarning>
+      <html lang="de" className="h-full bg-neutral-50 overflow-y-scroll" suppressHydrationWarning>
         <body className={cn(
-          "bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased h-full",
+          "bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased min-h-fit h-full",
           space_grotesk.variable
         )}>
           <Providers>
@@ -82,10 +85,10 @@ export default function RootLayout({
               <Navigation></Navigation>
             </header>
             {children}
-            <footer className="absolute bottom-0 left-0 flex gap-6 text-neutral-500 dark:bg-neutral-800 justify-center items-center py-2 bg-neutral-200 right-0">
+            {/* <footer className="fixed bottom-0 left-0 flex gap-6 text-neutral-400 dark:text-neutral-600 dark:bg-neutral-900 justify-center items-center py-2 bg-neutral-100 right-0">
               <Link href={"/datenschutz"}>Datenschutz</Link>
               <Link href={"/nutzungsbedingungen"}>Nutzungsbedingungen</Link>
-            </footer>
+            </footer> */}
           </Providers>
         </body>
       </html>
