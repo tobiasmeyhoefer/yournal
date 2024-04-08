@@ -7,6 +7,7 @@ import { deDE } from "@clerk/localizations"
 import { cn } from "@/lib/utils"
 import Navigation from "@/components/Navigation/Navigation"
 import { Providers } from "./providers"
+import Link from "next/link"
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -75,6 +76,10 @@ export default function RootLayout({
               <Navigation></Navigation>
             </header>
             {children}
+            <footer className="absolute bottom-0 left-0 flex gap-6 text-neutral-500 dark:bg-neutral-800 justify-center items-center py-2 bg-neutral-200 right-0">
+              <Link href={"/datenschutz"}>Datenschutz</Link>
+              <Link href={"/nutzungsbedingungen"}>Nutzungsbedingungen</Link>
+            </footer>
           </Providers>
         </body>
       </html>
