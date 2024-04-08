@@ -1,21 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "../button"
-import { SubmitButton } from "../SubmitButton"
+import { useState } from "react";
+import { Button } from "../button";
+import { SubmitButton } from "../SubmitButton";
 
 const DeletePopup = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   if (isOpen) {
     // document.body.classList.add("overflow-y-hidden")
     return (
-      <div className="fixed bg-black/70 top-0 left-0 right-0 bottom-0 flex justify-center items-center transition-all">
-        <div className="bg-white p-10 rounded-lg border border-black border-b-4 border-r-4 flex flex-col items-center justify-center gap-6">
-          <p className="text-neutral-900">Möchtest du diesen Gedanken wirklich löschen?</p>
+      <div className="fixed bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-black/70 transition-all">
+        <div className="flex flex-col items-center justify-center gap-6 rounded-lg border border-b-4 border-r-4 border-black bg-white p-10">
+          <p className="text-neutral-900">
+            Möchtest du diesen Gedanken wirklich löschen?
+          </p>
           <div className="flex gap-6">
             <Button
-              className="bg-red-500 text-black border rounded-lg border-b-4 border-r-4 border-black hover:bg-red-400"
+              className="rounded-lg border border-b-4 border-r-4 border-black bg-red-500 text-black hover:bg-red-400"
               onClick={() => setIsOpen(false)}
             >
               Abbruch
@@ -24,20 +26,20 @@ const DeletePopup = () => {
           </div>
         </div>
       </div>
-    )
+    );
   } else {
     // if (typeof window !== "undefined") {
     //   document.body.classList.remove("overflow-y-hidden")
     // }
     return (
       <Button
-        className="bg-red-300 text-black border rounded-lg border-b-4 border-r-4 border-black hover:bg-red-200"
+        className="rounded-lg border border-b-4 border-r-4 border-black bg-red-300 text-black hover:bg-red-200"
         onClick={() => setIsOpen(true)}
       >
         Löschen
       </Button>
-    )
+    );
   }
-}
+};
 
-export default DeletePopup
+export default DeletePopup;
