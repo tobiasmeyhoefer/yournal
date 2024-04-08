@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import Navigation from "@/components/Navigation/Navigation"
 import { Providers } from "./providers"
 import Link from "next/link"
+import Head from "next/head"
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-  },
+  }
 }
 
 export const viewport: Viewport = {
@@ -66,7 +67,12 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{ baseTheme: neobrutalism }} localization={deDE}>
-      <html lang="de" className="h-full" suppressHydrationWarning>
+      <Head>
+        <meta name="theme-color" content='#000000'></meta>
+        <meta name="apple-mobile-web-app-status-bar-style" content="default"></meta>
+        <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+      </Head>
+      <html lang="de" className="h-full bg-neutral-50" suppressHydrationWarning>
         <body className={cn(
           "bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased h-full",
           space_grotesk.variable
