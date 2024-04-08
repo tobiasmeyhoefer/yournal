@@ -10,7 +10,7 @@ export default function SideBar({
 }): JSX.Element {
   return (
     <div
-      className="fixed md:hidden w-full bg-white flex justify-center transition-all"
+      className="fixed md:hidden w-full bg-neutral-50 dark:bg-neutral-900 flex justify-center"
       style={{
         opacity: `${isOpen ? "1" : "0"}`,
         top: ` ${isOpen ? "0" : "-100%"}`,

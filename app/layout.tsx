@@ -6,6 +6,7 @@ import { neobrutalism } from "@clerk/themes"
 import { deDE } from "@clerk/localizations"
 import { cn } from "@/lib/utils"
 import Navigation from "@/components/Navigation/Navigation"
+import { Providers } from "./providers"
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -64,15 +65,17 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{ baseTheme: neobrutalism }} localization={deDE}>
-      <html lang="de" className="h-full">
+      <html lang="de" className="h-full" suppressHydrationWarning>
         <body className={cn(
-          "bg-background font-space antialiased h-full",
+          "bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased h-full",
           space_grotesk.variable
         )}>
-          <header className='absolute top-0 left-0 right-0'>
-            <Navigation></Navigation>
-          </header>
-          {children}
+          <Providers>
+            <header className='absolute top-0 left-0 right-0'>
+              <Navigation></Navigation>
+            </header>
+            {children}
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
