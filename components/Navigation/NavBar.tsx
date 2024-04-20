@@ -15,7 +15,7 @@ export default function NavBar({
   const pathname = usePathname()
 
   return (
-    <nav className="w-full h-32 sticky top-0 flex justify-center z-20 outline dark:outline-neutral-300 outline-neutral-400 outline-1">
+    <nav className="w-full h-32 sticky top-0 flex justify-center z-20">
       <div className="flex justify-between items-center h-full w-full max-w-screen-2xl">
         <button type="button" className="inline-flex items-center md:hidden pl-10" onClick={toggle}>
           <svg xmlns="http://www.w3.org/2000/svg" height="42" viewBox="0 -960 960 960" width="42" fill="#606060">
@@ -47,7 +47,7 @@ export default function NavBar({
           </SignedIn>
         </ul>
         <div className="gap-6 flex">
-          <div className="hidden md:flex gap-4">
+          <div className="hidden md:flex gap-6 mr-6">
             <SignedOut>
               <SignInButton>
                 <button>Anmelden</button>

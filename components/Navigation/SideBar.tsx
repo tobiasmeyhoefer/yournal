@@ -13,7 +13,7 @@ export default function SideBar({
       className="fixed md:hidden w-full bg-neutral-50 dark:bg-neutral-900 flex justify-center"
       style={{
         opacity: `${isOpen ? "1" : "0"}`,
-        top: ` ${isOpen ? "0" : "-100%"}`,
+        top: ` ${isOpen ? "0" : "100%"}`,
         bottom: ` ${isOpen ? "0" : null}`
       }}
     >

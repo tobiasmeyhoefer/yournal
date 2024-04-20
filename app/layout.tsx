@@ -77,7 +77,7 @@ export default function RootLayout({
       </Head>
       <html lang="de" className="h-full bg-neutral-50 overflow-y-scroll" suppressHydrationWarning>
         <body className={cn(
-          "bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased min-h-fit h-full",
+          "text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased min-h-fit h-full",
           space_grotesk.variable
         )}>
           <Providers>

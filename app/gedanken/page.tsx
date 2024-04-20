@@ -1,10 +1,10 @@
 import { deleteThought, getThoughts } from "@/actions"
 import ThoughtsSkeleton from "@/components/ui/Skeletons/ThoughtsSkeleton"
 import Thoughts from "@/components/ui/Thoughts"
+import { currentUser } from "@clerk/nextjs/server"
 import { Suspense } from "react"
 
-const gedanken = () => {
-
+const gedanken = async () => {
   return (
     <div className="w-full flex flex-col items-center gap-4 pt-44 xl:pt-60 pb-12">
       <Suspense fallback={<ThoughtsSkeleton/>}>
