@@ -1,7 +1,5 @@
-import { deleteThought, getThoughts } from "@/actions"
 import ThoughtsSkeleton from "@/components/ui/Skeletons/ThoughtsSkeleton"
 import Thoughts from "@/components/ui/Thoughts"
-import { currentUser } from "@clerk/nextjs/server"
 import { Suspense } from "react"
 
 const gedanken = async () => {

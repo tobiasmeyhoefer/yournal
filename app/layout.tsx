@@ -1,19 +1,19 @@
-import type { Metadata, Viewport } from "next"
-import { Space_Grotesk } from "next/font/google"
-import "./globals.css"
-import { ClerkProvider } from "@clerk/nextjs"
-import { neobrutalism } from "@clerk/themes"
-import { deDE } from "@clerk/localizations"
-import { cn } from "@/lib/utils"
-import Navigation from "@/components/Navigation/Navigation"
-import { Providers } from "./providers"
-import Link from "next/link"
-import Head from "next/head"
+import type { Metadata, Viewport } from "next";
+import { Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { neobrutalism } from "@clerk/themes";
+import { deDE } from "@clerk/localizations";
+import { cn } from "@/lib/utils";
+import Navigation from "@/components/Navigation/Navigation";
+import { Providers } from "./providers";
+import Link from "next/link";
+import Head from "next/head";
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--space-grotesk",
-})
+});
 
 const APP_NAME = "Yournal";
 const APP_DEFAULT_TITLE = "Yournal - mehr als nur ein Tagebuch";
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-  }
-}
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: "#FFFFFF",
@@ -63,25 +63,31 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <ClerkProvider appearance={{ baseTheme: neobrutalism }} localization={deDE}>
-      <Head>
-        {/* <meta name="theme-color" content='#000000'></meta> */}
+      {/* <Head>
+        <meta name="theme-color" content='#000000'></meta>
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAFA"></meta>
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="default"></meta>
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="color-scheme" content="dark light"></meta>
-      </Head>
-      <html lang="de" className="h-full bg-neutral-50 overflow-y-scroll" suppressHydrationWarning>
-        <body className={cn(
-          "text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-space antialiased min-h-fit h-full",
-          space_grotesk.variable
-        )}>
+      </Head> */}
+      <html
+        lang="de"
+        className="h-full overflow-y-scroll"
+        suppressHydrationWarning
+      >
+        <body
+          className={cn(
+            "h-full min-h-fit bg-emerald-200 font-space text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-50 overflow-x-hidden",
+            space_grotesk.variable,
+          )}
+        >
           <Providers>
-            <header className='absolute top-0 left-0 right-0'>
+            <header className="absolute left-0 right-0 top-0">
               <Navigation></Navigation>
             </header>
             {children}
@@ -93,5 +99,5 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
