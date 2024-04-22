@@ -9,6 +9,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import { Providers } from "./providers";
 import Link from "next/link";
 import Head from "next/head";
+import { useTheme } from 'next-themes'
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -18,7 +19,7 @@ const space_grotesk = Space_Grotesk({
 const APP_NAME = "Yournal";
 const APP_DEFAULT_TITLE = "Yournal - mehr als nur ein Tagebuch";
 const APP_TITLE_TEMPLATE = "%s - Yournal";
-const APP_DESCRIPTION = "Mehr als nur ein Tagebuch";
+const APP_DESCRIPTION = "Yournal";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -82,7 +83,7 @@ export default function RootLayout({
       >
         <body
           className={cn(
-            "h-full min-h-fit bg-emerald-200 font-space text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-50 overflow-x-hidden",
+            "h-full min-h-fit bg-white font-space text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-50 overflow-x-hidden",
             space_grotesk.variable,
           )}
         >
